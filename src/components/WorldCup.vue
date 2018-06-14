@@ -116,7 +116,7 @@ h1.title {
 }
 
 .worldCup .match-card table td h4 {
-  font-size: 26px;
+  font-size: 26px; 
 }
 
 .worldCup .match-card table td h5 {
