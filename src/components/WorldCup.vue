@@ -2,23 +2,30 @@
   <div class="worldCup">
       <h1 class="title">{{ wc.name }}</h1>
       <div class="match-card" v-for="(round, index) in wc.rounds" :key="index">
-        <h2>{{ round.name }}</h2><span>{{ round.matches.date }}</span>
+        <h2>{{ round.name }}</h2>
       <table>
         <tr v-for="(match, index) in round.matches" :key="index">
-          <td> 
-            <h4>{{ match.team1.name }}</h4> 
+          <td>
+            <h4>{{ match.team1.name }}</h4>
             <h5 class="match-score" v-if="match.score1">{{ match.score1 }}</h5>
             <h5 class="match-score" v-if="!match.score1">0</h5>
+            <div class="goals">
+              <span v-for="(goal, index) in match.goals1">{{ goal.name }}, {{ goal.score1 }} - {{ goal.score2 }}</span>
+            </div>
           </td>
           <td class="match-info">
             <h4>{{ match.time }}</h4>
+            <span>{{ match.date }}</span>
             <h5>{{ match.city }}</h5>
             <span>{{ match.stadium.name }}</span>
             </td>
           <td>
-            <h4>{{ match.team2.name }}</h4> 
+            <h4>{{ match.team2.name }}</h4>
             <h5 class="match-score" v-if="match.score2">{{ match.score2 }}</h5>
             <h5 class="match-score" v-if="!match.score2">0</h5>
+            <div class="goals">
+              <span v-for="(goal, index) in match.goals2">{{ goal.name }}, {{ goal.score1 }} - {{ goal.score2 }}</span>
+            </div>
           </td>
         </tr>
       </table>
@@ -87,10 +94,16 @@ h1.title {
   display: block;
 }
 
+.worldCup .match-card .goals span {
+  display: block;
+  font-size: 12px;
+}
+
 .worldCup .match-card .match-info h4 {
     font-size: 24px;
     font-weight: 900;
     color: #df0714;
+    padding-bottom: 0;
 }
 
 .worldCup .match-card .match-info span {
@@ -106,6 +119,7 @@ h1.title {
   width: 40%;
   text-align: center;
   padding-bottom: 50px;
+  vertical-align: top;
 }
 
 .worldCup .match-card table tr:last-child() td {
@@ -117,7 +131,7 @@ h1.title {
 }
 
 .worldCup .match-card table td h4 {
-  font-size: 26px; 
+  font-size: 26px;
   padding-bottom: 15px;
   color: #fff;
 }
@@ -130,6 +144,7 @@ h1.title {
   font-size: 32px;
   font-weight: 900;
   color: #fff;
+  padding-bottom: 20px;
 }
 
 </style>
