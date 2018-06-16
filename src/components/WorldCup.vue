@@ -10,7 +10,7 @@
             <h5 class="match-score" v-if="match.score1">{{ match.score1 }}</h5>
             <h5 class="match-score" v-if="!match.score1">0</h5>
             <div class="goals">
-              <span v-for="(goal, index) in match.goals1">{{ goal.name }}, {{ goal.score1 }} - {{ goal.score2 }}</span>
+              <span v-for="(goal, index) in match.goals1">{{ goal.name }}: {{ goal.minute }}, {{ goal.score1 }} - {{ goal.score2 }}</span>
             </div>
           </td>
           <td class="match-info">
@@ -24,7 +24,7 @@
             <h5 class="match-score" v-if="match.score2">{{ match.score2 }}</h5>
             <h5 class="match-score" v-if="!match.score2">0</h5>
             <div class="goals">
-              <span v-for="(goal, index) in match.goals2">{{ goal.name }}, {{ goal.score1 }} - {{ goal.score2 }}</span>
+              <span v-for="(goal, index) in match.goals2">{{ goal.name }}: {{ goal.minute }}, {{ goal.score1 }} - {{ goal.score2 }}</span>
             </div>
           </td>
         </tr>
