@@ -7,8 +7,8 @@
         <tr v-for="(match, index) in round.matches" :key="index">
           <td> 
             <h4>{{ match.team1.name }}</h4> 
-            <h5 v-if="match.score1">{{ match.score1 }}</h5>
-            <h5 v-if="!match.score1">0</h5>
+            <h5 class="match-score" v-if="match.score1">{{ match.score1 }}</h5>
+            <h5 class="match-score" v-if="!match.score1">0</h5>
           </td>
           <td class="match-info">
             <h4>{{ match.time }}</h4>
@@ -17,8 +17,8 @@
             </td>
           <td>
             <h4>{{ match.team2.name }}</h4> 
-            <h5 v-if="match.score2">{{ match.score2 }}</h5>
-            <h5 v-if="!match.score2">0</h5>
+            <h5 class="match-score" v-if="match.score2">{{ match.score2 }}</h5>
+            <h5 class="match-score" v-if="!match.score2">0</h5>
           </td>
         </tr>
       </table>
@@ -83,7 +83,8 @@ h1.title {
 .worldCup .match-card h2 {
   font-size: 24px;
   font-weight: normal;
-  margin: 0;
+  margin: 0 0 50px 0;
+  display: block;
 }
 
 .worldCup .match-card .match-info h4 {
@@ -117,10 +118,18 @@ h1.title {
 
 .worldCup .match-card table td h4 {
   font-size: 26px; 
+  padding-bottom: 15px;
+  color: #fff;
 }
 
 .worldCup .match-card table td h5 {
   font-size: 20px;
+}
+
+.worldCup .match-card table td h5.match-score {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
 }
 
 </style>
