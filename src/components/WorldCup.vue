@@ -1,6 +1,7 @@
 <template>
   <div class="worldCup">
       <h1 class="title">{{ wc.name }}</h1>
+      <h3>Hosted by <a href="https://erepizzafredag.se/">erepizzafredag!</a></h3>
       <div class="match-card" v-for="(round, index) in wc.rounds" :key="index">
         <h2>{{ round.name }}</h2>
       <table>
@@ -74,7 +75,7 @@ export default {
 
 h1.title {
   font-size: 55px;
-  margin: 50px 0;
+  margin: 50px 0 20px;
   text-align: center;
   font-weight: normal;
   color: #fff;
@@ -83,6 +84,13 @@ h1.title {
 .worldCup {
   width: 100%;
   overflow: hidden;
+}
+
+.worldCup h3 {
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 30px;
 }
 
 .worldCup .match-card {
