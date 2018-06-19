@@ -30,14 +30,19 @@
         </tr>
       </table>
       </div>
+      <Info />
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Info from '@/components/Info'
 
 export default {
   name: 'WorldCup',
+  components: {
+    Info
+  },
   data () {
     return {
       wc: []
@@ -55,7 +60,6 @@ export default {
   created() {
     axios.get('https://raw.githubusercontent.com/openfootball/world-cup.json/master/2018/worldcup.json')
           .then(response => {
-            console.log(response)
             this.wc = response.data
           }).catch(err => {
             console.log(err)
@@ -76,14 +80,20 @@ h1.title {
   color: #fff;
 }
 
-.worldCup .match-card {
+.worldCup {
   width: 100%;
+  overflow: hidden;
+}
+
+.worldCup .match-card {
+  width: 95%;
   max-width: 600px;
   padding: 20px;
   background: #292929;
   margin: 0 auto 30px;
   display: block;
   border-radius: 10px;
+  box-sizing: border-box;
   box-shadow: 0px 15px 36px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -145,6 +155,12 @@ h1.title {
   font-weight: 900;
   color: #fff;
   padding-bottom: 20px;
+}
+
+@media ( max-width: 767px ) {
+  .worldCup .match-card table td h4 {
+    font-size: 18px;
+  }
 }
 
 </style>
